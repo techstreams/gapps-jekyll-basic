@@ -1,0 +1,62 @@
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+      {{ site.title }}
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    {% if site.config.screen.branding == true %}
+    .branding-below {
+      bottom: 56px;
+      top: 0;
+    }
+    {% endif %}
+    {% if site.config.screen.size == 'dialog' or site.config.screen.size == 'full' %}
+    .dialog {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      overflow-y: auto;
+      padding: 12px;
+      position: absolute;
+      width: 100%;
+    }
+    {% endif %}
+    {% if site.config.screen.size == 'dialog' and site.config.production == false %}
+    .dialog {
+       width: {{ site.config.screen.width }}px;
+       height: {{ site.config.screen.height }}px;
+    }
+    {% endif %}
+    {% if site.config.screen.size == 'sidebar' and site.config.production == false %}
+    .sidebar {
+       width: 300px;
+    }
+    {% endif %}
+  </style>
+
+  {% include css.html %}
+
+  {% if site.config.jquery.include == true %}
+    <!-- JQuery -->
+    <script src={{ '//ajax.googleapis.com/ajax/libs/jquery/' | append: site.config.jquery.version | append: '/jquery.min.js' }}></script>
+  {% endif %}
+
+  {% include js.html %}
+
+  {% if site.config.executionApi.include == true and site.config.production == true  %}
+    {% include executionapi/gsapi.html %} 
+  {% endif %}
+
+  {% if site.config.executionApi.include == true and site.config.production == false %} 
+    {% include executionapi/executionapi.html %}
+  {% endif %}
+
+</head>

@@ -1,0 +1,20 @@
+---
+layout: default
+title: Home
+---
+
+{% if site.config.production == false %}
+    <div id="authorize-div" style="display:none">
+        <span>Authorize access to Google Apps Script Execution API</span>
+        <!--Button for the user to click to initiate auth sequence -->
+        <button id="authorize-button" onclick="handleAuthClick(event)">
+          Authorize
+        </button>
+    </div>
+    <div id="search-div" style="display:none">
+       {% include example/search.html %}
+    </div>
+{% else %}
+    {% include example/search.html %}
+{% endif %}
+<pre id="output"></pre>

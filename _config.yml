@@ -1,0 +1,29 @@
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            "Jekyll Google Apps Script Basic Theme"
+baseurl:          ''
+encoding:         utf-8
+exclude:          ["LICENSE.md", "README.md", "_config.yml", ".gitignore", ".editorconfig"]
+
+# Jekyll Google Apps Script Basic Configuration
+config:
+  production: false # Enable/Disable 'Production' mode
+  screen:  # Used to set the Gapps Add-on screen size
+    size: "sidebar"  # Options 'sidebar', 'dialog', 'full'
+    width: "500"  # Width of Custom Dialog Screen - screen_size == 'dialog' ONLY 
+    height: "500" # Height of Custom Dialog Screen - screen_size == 'dialog' ONLY
+    branding: true # Enable/Disable branding at bottom of screen
+  jquery:  # jQuery configuration
+    include: true  # Enable/Disable inclusion of jQuery
+    version: "2.2.4"  # jQuery version (hosted on Google CDN)
+  executionApi:  # Google Apps Script Execution API configuration
+    include: false  # Enables/Disables inclusion of Execution API code
+    clientId: "OAUTH CLIENT ID" # Client ID for Execution API
+    scriptId: "SCRIPT ID"  # Script ID for Execution API
+  
+

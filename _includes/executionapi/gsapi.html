@@ -1,0 +1,47 @@
+<script type="text/javascript">
+
+  /**
+   * Initiate auth flow in response to user clicking authorize button.
+   *
+   * @param {Event} event Button click event.
+   */
+  function handleClick(e) {
+  	var searchMsg = document.getElementById('searchmsg');
+  	var btn = document.getElementById("listBtn"); 
+  	var pre = document.getElementById('output');
+  	searchMsg.style.display = '';
+  	btn.disabled = true;
+  	pre.innerHTML = '';
+  	google.script.run
+  	  	.withSuccessHandler(function(folderSet) {
+  	  		searchMsg.style.display = 'none';
+  	  		btn.disabled = false;
+	         if (Object.keys(folderSet).length == 0) {
+	            appendPre('No folders returned!');
+	        } else {
+	          appendPre('Folders under your root folder:');
+	          Object.keys(folderSet).forEach(function(id){
+	            appendPre('\t' + folderSet[id] + ' (' + id  + ')');
+	          });
+	        } 	  		
+  	  	})
+  	  	.withFailureHandler(function(err) {
+  	  		searchMsg.style.display = 'none';
+  	  		btn.disabled = false;  
+	        pre.innerHTML = "ERROR: " + err.message;
+  	  	})
+        .getFoldersUnderRoot();
+  }
+
+   /**
+   * Append a pre element to the body containing the given message
+   * as its text node.
+   *
+   * @param {string} message Text to be placed in pre element.
+   */
+  function appendPre(message) {
+    var pre = document.getElementById('output');
+    var textContent = document.createTextNode(message + '\n');
+    pre.appendChild(textContent);
+  }
+</script>

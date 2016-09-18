@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+  	{% if site.config.screen.size == 'sidebar' %} 
+	    {% assign screen = 'sidebar' %}
+	{% else %}
+	    {% assign screen = 'dialog' %}
+	{% endif %}
+
+    <div class="{{ screen }} {% if site.config.screen.branding == true %} branding-below {% endif %}">
+      {{ content }}
+    </div>
+    {% if site.config.screen.branding == true %}
+    	{% include branding.html %}
+   	{% endif %}
+  </body>
+</html>
