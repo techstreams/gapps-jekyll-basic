@@ -189,7 +189,7 @@ jekyll serve
 
 ## Test Using the Execution API
 
-Test your UI in ***Development Mode*** by integrating with the [Google Apps Script Execution API](https://developers.google.com/apps-script/guides/rest/):
+Test UI in ***Development Mode*** by integrating with the [Google Apps Script Execution API](https://developers.google.com/apps-script/guides/rest/):
 
 
 1) [Create a target script project](https://developers.google.com/apps-script/guides/rest/quickstart/target-script) for the Google Apps Script Execution API *(save the __Target Script ID__ for configuration)*
