@@ -196,6 +196,8 @@ Test your UI in ***Development Mode*** by integrating with the [Google Apps Scri
 
 2) [Turn on the Google Apps Script Execution API](https://developers.google.com/apps-script/guides/rest/quickstart/js) *(save the __OAuth Client ID__ for configuration)*
 
+> *__NOTE:__ Jekyll's local development server runs on port 4000 by default.  Set the __Authorized JavaScript origins field__ to `http://localhost:4000` when creating the __OAuth Client ID__ in the [Google Development Console](https://console.developers.google.com).*
+
 3) In `_config.yml`:
 
 * Set `production` option to `false`
