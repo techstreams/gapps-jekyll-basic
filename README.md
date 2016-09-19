@@ -129,7 +129,7 @@ jekyll build --watch
 4) Add any custom CSS to `_includes/css.html`
 
 
-5) Make iterative UI modifications to `index.html` and Jekyll will auto-regenerate the site
+5) Make iterative UI modifications to `index.html` ... Jekyll will auto-regenerate the site
 
 
 <br>
