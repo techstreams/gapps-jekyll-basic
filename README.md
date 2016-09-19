@@ -11,10 +11,10 @@ Basic [Jekyll](https://jekyllrb.com/) theme for local [Google Apps Script](https
 
 **Theme includes:**
 
-* [CSS](https://developers.google.com/apps-script/add-ons/css) required for all [Google Apps Add-ons](https://developers.google.com/apps-script/add-ons/)
+* Reference to [CSS](https://developers.google.com/apps-script/add-ons/css) required for all [Google Apps Add-ons](https://developers.google.com/apps-script/add-ons/)
 * Flexible configuration
 
-*Project Directory Structure:*
+**Project Directory Structure:**
 
 ```
 gapps-jekyll-basic/
@@ -37,7 +37,7 @@ gapps-jekyll-basic/
 ```
 
 
-**Flexible configuration _(`_config.yml`)_:**
+**Configuration _(`_config.yml`)_:**
 
 * Development & Production modes
 * Multiple window sizing options: `sidebar`, `dialog` or `full`
@@ -47,6 +47,7 @@ gapps-jekyll-basic/
 
 ```
 # Jekyll Google Apps Script Basic Configuration
+
 config:
   production: false
   screen: 
@@ -63,11 +64,7 @@ config:
     scriptId: "SCRIPT ID" 
 ```
 
-> *__NOTE:__ To change the __title__ element in the generated UI html ... modify the `title` option in `_config.yml`*
-
-```
-title: "Jekyll Google Apps Script Basic Theme"
-```
+<br>
 
 ## Installation
 
@@ -99,7 +96,7 @@ jekyll serve
 5) View in the local development server:  [http://localhost:4000](http://localhost:4000)
 
 
-
+<br>
 
 ## Getting Started
 
@@ -109,12 +106,22 @@ jekyll serve
 1) In `_config.yml`:
 
 * Set `production` option to `false`
+
+
 * Set `screen` option to desired value:  `sidebar`, `dialog` or `full`  
 > *If the screen size is `dialog`, set the screen `width` and `height` options to desired values ... `sidebar` and `full` 'width' and 'height' values are preset*
 
+2) Start/Restart the Jekyll server in project directory
 
-2) Make UI additions/modifications to `index.html`
+```
+jekyll serve
+``` 
 
+*or*
+
+```
+jekyll build --watch
+```
 
 3) Add any client-side JS to `_includes/js.html`
 
@@ -122,10 +129,7 @@ jekyll serve
 4) Add any custom CSS to `_includes/css.html`
 
 
-5) Start/Restart the Jekyll server in project directory:  `jekyll serve` or `jekyll build --watch`  
-
-
-6) Make iterative UI modifications to `index.html` and Jekyll will auto-regenerate the site
+5) Make iterative UI modifications to `index.html` and Jekyll will auto-regenerate the site
 
 
 <br>
@@ -137,23 +141,18 @@ jekyll serve
 * Set `production` option to `true`
 
 2) Start/Restart the Jekyll server and wait for site to build 
-> *Can also run `jekyll build` command to build the site*
+
+```
+jekyll serve
+``` 
+
+*or*
+
+```
+jekyll build
+```
 
 3) Copy the generated `_site/index.html` file to the Google Apps Script environment
-
-<br>
-
-`~~~`
-
-
-***Special Notes:***
-
-* Jekyll builds the ***production version*** of the UI as a ***single*** `_site/index.html` file due to user defined client-side CSS and JS files being 'included' in the Jekyll build *(`_includes/css.html` and `_includes/js.html` respectively)*   
-> *If CSS and JS files are configured as static assets, remember to include them in the production Google Apps Script project in addition to the generated `_site/index.html` file*
-
-* Any configuration changes to `_config.yml` require a Jekyll server restart.
-
-`~~~`
 
 <br>
 
@@ -164,11 +163,12 @@ jekyll serve
 
 * Set the `screen branding` option to `true`
 
+2) Start/Restart the Jekyll server
 
-2) Update the `_includes/branding.html` file with branding information
+
+3) Update the `_includes/branding.html` file with branding information
 
 
-3) Start/Restart the Jekyll server
 
 <br>
 
@@ -177,11 +177,12 @@ jekyll serve
 1) In `_config.yml`:
 
 * Set the `jQuery include` option to `true`
+
+
 * Set the `jQuery version` option the desired *[Google CDN hosted jQuery version](https://developers.google.com/speed/libraries/#jquery)*
 
 
 2) Start/Restart the Jekyll server
-
 
 
 <br>
@@ -196,20 +197,26 @@ Test UI in ***Development Mode*** by integrating with the [Google Apps Script Ex
 
 2) [Turn on the Google Apps Script Execution API](https://developers.google.com/apps-script/guides/rest/quickstart/js) *(save the __OAuth Client ID__ for configuration)*
 
-> *__NOTE:__ Jekyll's local development server runs on port 4000 by default.  Set the __Authorized JavaScript origins field__ to `http://localhost:4000` when creating the __OAuth Client ID__ in the [Google Development Console](https://console.developers.google.com).*
+> *__NOTE:__ Jekyll's local development server runs on port 4000 by default.  Set the __Authorized JavaScript origins field__ to `http://localhost:4000` when creating the __OAuth Client ID__ in the [Google Development Console](https://console.developers.google.com)*
 
 3) In `_config.yml`:
 
 * Set `production` option to `false`
+
+
 * Set the `executionApi include` option to `true`
+
+
 * Set the `executionApi clientId` option to **OAuth Client ID** created in *Step 2*
+
+
 * Set the `executionApi scriptId` option to **Script ID** created in *Step 1*
 
-4) Write Execution API calls
+4) Start/Restart the Jekyll server
+
+5) Write Execution API calls
 
 > *See `apiexample.html` and `_includes/executionapi/executionapi.html` files for an example*
-
-5) Start/Restart the Jekyll server
 
 <br>
 
@@ -222,12 +229,39 @@ Once the UI is ready ... export in ***Production Mode***:
 2) In `_config.yml`:
 
 * Set `production` option to `true`
+
+
 * Set the `executionApi include` option to `true`
 
 3) Start/Restart the Jekyll server and wait for site to build 
-> *Can also run `jekyll build` command to build the site*
+
+```
+jekyll serve
+``` 
+
+*or*
+
+```
+jekyll build
+```
 
 4) Copy the generated `_site/apiexample/index.html` file to the Google Apps Script environment *(or the corresponding generated `_site/.../index.html` for your environment)*
+
+<br>
+
+## Special Notes
+
+* Jekyll builds the UI as a ***single*** `_site/index.html` file due to user defined client-side CSS and JS files being 'included' in the Jekyll build *(`_includes/css.html` and `_includes/js.html` respectively)*   
+> *If CSS and JS files are configured as static assets, remember to include them in the production Google Apps Script project in addition to the generated `_site/index.html` file*
+
+* To change the __title__ element in the generated UI html ... modify the `title` option in `_config.yml`
+
+```
+title: "Jekyll Google Apps Script Basic Theme"
+```
+
+* Any configuration changes to `_config.yml` require a Jekyll server restart.
+
 
 <br>
 
