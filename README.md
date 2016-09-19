@@ -108,7 +108,7 @@ jekyll serve
 * Set `production` option to `false`
 
 
-* Set `screen` option to desired value:  `sidebar`, `dialog` or `full`  
+* Set `screen size` option to desired value:  `sidebar`, `dialog` or `full`  
 > *If the screen size is `dialog`, set the screen `width` and `height` options to desired values ... `sidebar` and `full` 'width' and 'height' values are preset*
 
 2) Start/Restart the Jekyll server in project directory
