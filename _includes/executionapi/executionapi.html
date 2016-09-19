@@ -1,5 +1,8 @@
 
 <script type="text/javascript">
+
+  // Example adpated from https://developers.google.com/apps-script/guides/rest/quickstart/js
+
   // Your Client ID can be retrieved from your project in the Google
   // Developer Console, https://console.developers.google.com
   var CLIENT_ID = "{{ site.config.executionApi.clientId }}";
@@ -71,6 +74,10 @@
   /**
    * Calls an Apps Script function to list the folders in the user's
    * root Drive folder.
+   *
+   * @param {DOM Element} searchMsg Button click event
+   * @param {DOM Element} btn Search Button
+   * @param {DOM Element} pre Output Element to display search results
    */
   function callScriptFunction(searchMsg, btn, pre) {
     var scriptId = "{{ site.config.executionApi.scriptId }}";
