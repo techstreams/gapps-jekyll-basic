@@ -43,7 +43,7 @@ gapps-jekyll-basic/
 * Multiple window sizing options: `sidebar`, `dialog` or `full`
 * *Optional:* jQuery inclusion
 * *Optional:* Non-scrolling branding area inclusion
-* *Optional:* Testing using the [Execution API](https://developers.google.com/apps-script/guides/rest/)
+* *Optional:* Test integration through the [Execution API](https://developers.google.com/apps-script/guides/rest/)
 
 ```
 # Jekyll Google Apps Script Basic Configuration
@@ -123,13 +123,13 @@ jekyll serve
 jekyll build --watch
 ```
 
-3) Add any client-side JS to `_includes/js.html`
+3) Add any client-side Javascript to `_includes/js.html`
 
 
 4) Add any custom CSS to `_includes/css.html`
 
 
-5) Make iterative UI modifications to `index.html` ... Jekyll will auto-regenerate the site
+5) Make iterative UI modifications to `index.html` ... ***Jekyll will auto-regenerate the site***
 
 
 <br>
@@ -190,6 +190,8 @@ jekyll build
 
 ## Test Using the Execution API
 
+**DEVELOPMENT MODE:**
+
 Test UI in ***Development Mode*** by integrating with the [Google Apps Script Execution API](https://developers.google.com/apps-script/guides/rest/):
 
 
@@ -197,7 +199,7 @@ Test UI in ***Development Mode*** by integrating with the [Google Apps Script Ex
 
 2) [Turn on the Google Apps Script Execution API](https://developers.google.com/apps-script/guides/rest/quickstart/js) *(save the __OAuth Client ID__ for configuration)*
 
-> *__NOTE:__ Jekyll's local development server runs on port 4000 by default.  Set the __Authorized JavaScript origins field__ to `http://localhost:4000` when creating the __OAuth Client ID__ in the [Google Development Console](https://console.developers.google.com)*
+> *__NOTE:__ Jekyll's local development server runs on port 4000 by default.  Set the __Authorized JavaScript origins__ field to `http://localhost:4000` when creating the __OAuth Client ID__ in the [Google Development Console](https://console.developers.google.com)*
 
 3) In `_config.yml`:
 
@@ -219,6 +221,8 @@ Test UI in ***Development Mode*** by integrating with the [Google Apps Script Ex
 > *See `apiexample.html` and `_includes/executionapi/executionapi.html` files for an example*
 
 <br>
+
+**PRODUCTION MODE:**
 
 Once the UI is ready ... export in ***Production Mode***:
 
@@ -245,14 +249,14 @@ jekyll serve
 jekyll build
 ```
 
-4) Copy the generated `_site/apiexample/index.html` file to the Google Apps Script environment *(or the corresponding generated `_site/.../index.html` for your environment)*
+4) Copy the generated `_site/apiexample/index.html` file *(or your corresponding generated `_site/.../index.html`)* to the Google Apps Script environment 
 
 <br>
 
 ## Special Notes
 
-* Jekyll builds the UI as a ***single*** `_site/index.html` file due to user defined client-side CSS and JS files being 'included' in the Jekyll build *(`_includes/css.html` and `_includes/js.html` respectively)*   
-> *If CSS and JS files are configured as static assets, remember to include them in the production Google Apps Script project in addition to the generated `_site/index.html` file*
+* This Jekyll theme builds the UI as a ***single `_site/index.html`*** file due to client-side CSS *(`_includes/css.html`)*, Javascript *(`_includes/js.html`)* and *(optional backend server code ... `_includes/executionapi/gsapi.html`)* being ***'included'*** in the Jekyll build *(see the [Jekyll documentation on 'includes'](https://jekyllrb.com/docs/templates/#tags) for more information)*
+> *If you configure CSS, Javascript or backend server code to be a static asset in your your Jekyll build, remember to include these files in the production Google Apps Script project in addition to the generated `_site/index.html` file*
 
 * To change the __title__ element in the generated UI html ... modify the `title` option in `_config.yml`
 
