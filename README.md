@@ -1,7 +1,9 @@
 ## Overview
 
 Basic [Jekyll](https://jekyllrb.com/) theme for local [Google Apps Script](https://www.google.com/script/start/
-) UI development.
+) UI development.   
+
+*See the [blog post](https://techstreams.github.io/2016/09/20/google-apps-ui-prototyping-with-jekyll/).*
 
 **Useful for:**
 
