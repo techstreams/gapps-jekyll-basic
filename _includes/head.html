@@ -46,7 +46,7 @@
 
   {% if site.config.jquery.include == true %}
     <!-- JQuery -->
-    <script src={{ '//ajax.googleapis.com/ajax/libs/jquery/' | append: site.config.jquery.version | append: '/jquery.min.js' }}></script>
+    <script src="{{ '//ajax.googleapis.com/ajax/libs/jquery/' | append: site.config.jquery.version | append: '/jquery.min.js' }}"></script>
   {% endif %}
 
   {% include js.html %}
